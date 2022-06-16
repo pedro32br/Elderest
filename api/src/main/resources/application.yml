@@ -1,5 +1,9 @@
 spring:
-  security:
-    user:
-      name: "admin"
-      password: "puc2021"
+  data:
+    mongodb:
+      database: "elderest"
+      uri: "mongodb://admin:123456@localhost:27017/elderest?authSource=admin"
+#  security:
+#    user:
+#      name: "admin"
+#      password: "puc2021"
