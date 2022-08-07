@@ -1,29 +1,29 @@
-package br.com.pucminas.elderest.dto;
+package br.com.pucminas.elderest.medicamento;
 
 public class MedicamentoDTO {
 
-    private final String id;
+    private final Long id;
 
-    private final String fornecedora;
+    private final String nome;
     private final Integer quantidade;
     private final String substancia;
 
-    public MedicamentoDTO(final String id, final String fornecedora,
+    public MedicamentoDTO(final Long id, final String nome,
             final int quantidade,
             final String substancia) {
         super();
         this.id = id;
-        this.fornecedora = fornecedora;
+        this.nome = nome;
         this.quantidade = quantidade;
         this.substancia = substancia;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public String getFornecedora() {
-        return fornecedora;
+    public String getNome() {
+        return nome;
     }
 
     public Integer getQuantidade() {

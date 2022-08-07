@@ -1,9 +1,9 @@
-package br.com.pucminas.elderest.service;
+package br.com.pucminas.elderest.utils;
 
 import org.springframework.stereotype.Component;
 
-import br.com.pucminas.elderest.dto.MedicamentoDTO;
-import br.com.pucminas.elderest.entity.Medicamento;
+import br.com.pucminas.elderest.medicamento.Medicamento;
+import br.com.pucminas.elderest.medicamento.MedicamentoDTO;
 
 @Component
 public class Mapper {
@@ -29,7 +29,7 @@ public class Mapper {
         }
 
         return new Medicamento(medicamentoDto.getId(),
-                medicamentoDto.getFornecedora(),
+                medicamentoDto.getNome(),
                 quantity,
                 medicamentoDto.getSubstancia(), situacao);
     }
@@ -40,7 +40,7 @@ public class Mapper {
         }
 
         return new MedicamentoDTO(medicamento.getId(),
-                medicamento.getFornecedora(),
+                medicamento.getNome(),
                 medicamento.getQuantidade(),
                 medicamento.getSubstancia());
     }
