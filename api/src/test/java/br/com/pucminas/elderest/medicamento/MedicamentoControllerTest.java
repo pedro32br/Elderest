@@ -1,4 +1,4 @@
-package br.com.pucminas.elderest.controller;
+package br.com.pucminas.elderest.medicamento;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -15,10 +15,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import br.com.pucminas.elderest.medicamento.MedicamentoController;
-import br.com.pucminas.elderest.medicamento.MedicamentoDTO;
-import br.com.pucminas.elderest.medicamento.MedicamentoServiceImpl;
 
 @WebMvcTest(MedicamentoController.class)
 class MedicamentoControllerTest {
