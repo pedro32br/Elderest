@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    default: local
+  security:
+    user:
+      name: "admin"
+      password: "puc2021"
+
+jwt:
+  key: ""
+  resources:
+    ignore: "users:PATCH,items:POST,items:DELETE,users:GET,me:GET,users:DELETE,shoppingCart:POST,shoppingCart:DELETE,shoppingCart:PATCH,shoppingCart/checkout:POST,orders:GET,orders/me:GET"
