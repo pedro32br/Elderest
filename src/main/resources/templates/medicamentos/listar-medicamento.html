@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main}">
+<head>
+    <title>Elderest - Criar medicamentos</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="alert alert-danger" role="alert" th:if="${mensagemDeletado}" th:utext="${mensagemDeletado}">
+        Mensagem aqui
+    </div>
+    <div class="alert alert-success" role="alert" th:if="${mensagemCriado}" th:utext="${mensagemCriado}">
+        Mensagem aqui
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome do medicamento</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Substancia</th>
+            <th scope="col">Situacao</th>
+            <th scope="col">Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="medicamento : ${medicamentos}">
+            <td th:text="${medicamento.id}"></td>
+            <td th:text="${medicamento.nome}"></td>
+            <td th:text="${medicamento.quantidade}"></td>
+            <td th:text="${medicamento.substancia}"></td>
+            <td th:text="${medicamento.situacao}"></td>
+            <td>
+                <a th:href="@{medicamentos/atualizar(medicamentoId=${medicamento.id})}" class="btn btn-info">Atualizar</a>
+                <a th:href="@{medicamentos/deletar(medicamentoId=${medicamento.id})}" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,6 +1,5 @@
 package br.com.pucminas.elderest.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,13 +27,13 @@ public class MedicamentoService {
         return medicamentoRepository.save(medicamento);
     }
 
-    public List<Medicamento> getMedicamento(final String nome) {
-        final Optional<Medicamento> optional = medicamentoRepository.findByNome(StringUtils.capitalize(nome.toLowerCase()));
+    public Medicamento getMedicamento(final Long id) {
+        final Optional<Medicamento> optional = medicamentoRepository.findById(id);
         if(optional.isPresent()) {
-            return optional.stream().toList();
+            return optional.get();
         }
         else {
-            return new ArrayList<>();
+            return new Medicamento();
         }
     }
 
@@ -43,8 +42,8 @@ public class MedicamentoService {
     }
 
     @Transactional
-    public void deleteMedicamento(final String nome) {
-        medicamentoRepository.deleteByNome(StringUtils.capitalize(nome.toLowerCase()));
+    public void deleteMedicamento(final Long id) {
+        medicamentoRepository.deleteById(id);
     }
 
     protected SituacaoEnum updateSituacao(final Integer quantidade) {

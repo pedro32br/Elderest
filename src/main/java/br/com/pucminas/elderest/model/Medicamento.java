@@ -23,7 +23,7 @@ import lombok.Setter;
 public class Medicamento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotBlank(message = NOT_BLANK)
@@ -49,7 +49,7 @@ public class Medicamento {
         this.substancia = substancia;
     }
 
-    protected Medicamento() {
-
+    public Medicamento() {
+        super();
     }
 }

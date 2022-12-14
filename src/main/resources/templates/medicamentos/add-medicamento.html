@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main}">
+<head>
+    <title>Elderest - Criar medicamentos</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <form method="POST" th:action="@{/medicamento/salvar}" th:object="${medicamento}">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="nomeId" class="form-label">
+                    Nome:
+                </label>
+                <input id="nomeId" class="form-control" type="text"
+                       th:classappend="${#fields.hasErrors('nome') ? 'is-invalid' : ''}"
+                       th:field="*{nome}"/>
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('nome')}"
+                     th:errors="*{nome}">
+                    Erro nome
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="quantidadeId" class="form-label">
+                    Quantidade:
+                </label>
+                <input id="quantidadeId" class="form-control" type="number"
+                       th:classappend="${#fields.hasErrors('quantidade') ? 'is-invalid' : ''}"
+                       th:field="*{quantidade}"/>
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('quantidade')}"
+                     th:errors="*{quantidade}">
+                    Erro quantidade
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="substanciaId" class="form-label">
+                Substancia:
+            </label>
+            <input id="substanciaId" class="form-control" type="text"
+                   th:classappend="${#fields.hasErrors('substancia') ? 'is-invalid' : ''}"
+                   th:field="*{substancia}"/>
+            <div class="invalid-feedback"
+                 th:if="${#fields.hasErrors('substancia')}"
+                 th:errors="*{substancia}">
+                Erro substancia
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" value="Salvar">Salvar</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
