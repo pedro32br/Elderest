@@ -33,11 +33,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .hasRole("USER")
                 .and()
                 .formLogin().loginPage("/login").permitAll().loginProcessingUrl("/login")
-                .defaultSuccessUrl("/").failureUrl("/login?message=error").usernameParameter("username")
+                .defaultSuccessUrl("/").failureUrl("/login?error").usernameParameter("username")
                 .passwordParameter("password").and().logout().invalidateHttpSession
                         (true).clearAuthentication(true).logoutRequestMatcher
                         (new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?message=logout")
+                .logoutSuccessUrl("/login?logout")
         ;
     }
 
