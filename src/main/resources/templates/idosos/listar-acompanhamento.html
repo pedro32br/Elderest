@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main}">
+<head>
+    <title>Elderest - Listar acompanhamento de idoso</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <fieldset disabled>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nomeId" class="form-label">
+                    Nome do idoso:
+                </label>
+                <input id="nomeId" class="form-control" type="text"
+                       th:value="*{idoso.nome}"/>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cpfId" class="form-label">
+                        CPF:
+                    </label>
+                    <input id="cpfId" class="form-control" type="text"
+                           th:value="*{idoso.cpf}"/>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Funcionario</th>
+            <th scope="col">Descricao</th>
+            <th scope="col">Pressao Arterial Max</th>
+            <th scope="col">Pressao Arterial Min</th>
+            <th scope="col">Frequencia Respiratoria</th>
+            <th scope="col">Temperatura</th>
+            <th scope="col">Frequencia Cardiaca</th>
+            <th scope="col">Saturacao</th>
+            <th scope="col">Dextro</th>
+            <th scope="col">Diurese</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="acompanhamento : ${idoso.acompanhamentos}">
+            <td th:text="${acompanhamento.funcionario}"></td>
+            <td th:text="${acompanhamento.descricao}"></td>
+            <td th:text="${acompanhamento.pressaoArterialMax}"></td>
+            <td th:text="${acompanhamento.pressaoArterialMin}"></td>
+            <td th:text="${acompanhamento.frequenciaRespiratoria}"></td>
+            <td th:text="${acompanhamento.temperatura}"></td>
+            <td th:text="${acompanhamento.frequenciaCardiaca}"></td>
+            <td th:text="${acompanhamento.saturacao}"></td>
+            <td th:text="${acompanhamento.dextro}"></td>
+            <td th:text="${acompanhamento.diurese}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

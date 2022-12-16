@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main}">
+<head>
+    <title>Elderest - Adicionar idoso</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <form method="POST" th:action="@{/idoso/salvar}" th:object="${idoso}">
+        <div class="form-group">
+            <label for="nomeId" class="form-label">
+                Nome completo:
+            </label>
+            <input id="nomeId" class="form-control" type="text"
+                   th:classappend="${#fields.hasErrors('nome') ? 'is-invalid' : ''}"
+                   th:field="*{nome}"/>
+            <div class="invalid-feedback"
+                 th:if="${#fields.hasErrors('nome')}"
+                 th:errors="*{nome}">
+                Erro nome
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="cpfId" class="form-label">
+                    CPF:
+                </label>
+                <input id="cpfId" class="form-control" type="text"
+                       th:classappend="${#fields.hasErrors('cpf') ? 'is-invalid' : ''}"
+                       th:field="*{cpf}"/>
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('cpf')}"
+                     th:errors="*{cpf}">
+                    Erro cpf
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="idadeId" class="form-label">
+                    Idade:
+                </label>
+                <input id="idadeId" class="form-control" type="number"
+                       th:classappend="${#fields.hasErrors('idade') ? 'is-invalid' : ''}"
+                       th:field="*{idade}"/>
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('idade')}"
+                     th:errors="*{idade}">
+                    Erro idade
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dataInternacaoId" class="form-label">
+                Data de Internacao:
+            </label>
+            <input id="dataInternacaoId" class="form-control" type="date"
+                   th:classappend="${#fields.hasErrors('dataInternacao') ? 'is-invalid' : ''}"
+                   th:field="*{dataInternacao}"/>
+            <div class="invalid-feedback"
+                 th:if="${#fields.hasErrors('dataInternacao')}"
+                 th:errors="*{dataInternacao}">
+                Erro nome
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" value="Salvar">Salvar</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,31 +1,56 @@
 package br.com.pucminas.elderest.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Size;
-
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
-@Setter
-@Getter
-@Table(name = "USUARIO")
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Email
-    private String email;
+    @Column(unique = true)
+    private String username;
 
-    @Size(max = 20, min = 6, message = "Senha precisa ter valor maximo de 20 characteres e minimo 6")
-    private String senha;
+    private String password;
 
-    private boolean isAdmin;
+    public Usuario() {
+
+    }
+
+    public Usuario(final String username, final String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(final String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(final String password) {
+        this.password = password;
+    }
+
 }

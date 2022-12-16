@@ -3,6 +3,8 @@ package br.com.pucminas.elderest.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import br.com.pucminas.elderest.exception.exceptions.BadRequestException;
@@ -25,9 +27,9 @@ public class IdosoService {
         return idosoRepository.save(idoso);
     }
 
-    public Idoso getIdoso(final String cpf) {
-        final Optional<Idoso> cpfOptional = idosoRepository.findByCpf(formataCpf(cpf));
-        return cpfOptional.orElse(null);
+    public Idoso getIdoso(final Long id) {
+        final Optional<Idoso> idosoOptional = idosoRepository.findById(id);
+        return idosoOptional.orElse(null);
     }
 
     public List<Idoso> getAllIdosos() {
@@ -40,5 +42,10 @@ public class IdosoService {
             return cpfFormatado;
         }
         throw new BadRequestException("CPF incorreto");
+    }
+
+    @Transactional
+    public void deleteIdoso(final Long id) {
+        idosoRepository.deleteById(id);
     }
 }

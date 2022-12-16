@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main}">
+<head>
+    <title>Elderest - Adicionar acompanhamento</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <fieldset disabled>
+        <div class="form-group">
+            <label for="nomeId" class="form-label">
+                Nome do idoso:
+            </label>
+            <input id="nomeId" class="form-control" type="text"
+                   th:value="*{idoso.nome}"/>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="cpfId" class="form-label">
+                    CPF:
+                </label>
+                <input id="cpfId" class="form-control" type="text"
+                       th:value="*{idoso.cpf}"/>
+            </div>
+        </div>
+    </fieldset>
+    <form method="POST" th:action="@{/idoso/acompanhamento/adicionar}" th:object="${acompanhamento}">
+        <input type="hidden" th:field="*{idoso.id}" th:value="*{idoso.id}">
+        <div class="form-group row">
+            <label for="funcionarioId" class="col-sm-2 col-form-label">Funcionario</label>
+            <div class="col-sm-10">
+                <input th:field="*{funcionario}"
+                       type="text" class="form-control" id="funcionarioId"
+                       placeholder="nome funcionario"
+                       th:classappend="${#fields.hasErrors('funcionario') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('funcionario')}"
+                     th:errors="*{funcionario}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="descricaoId" class="col-sm-2 col-form-label">Descricao</label>
+            <div class="col-sm-10">
+                <input th:field="*{descricao}"
+                       type="text" class="form-control" id="descricaoId"
+                       placeholder="Descricao do acompanhamento"
+                       th:classappend="${#fields.hasErrors('descricao') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('descricao')}"
+                     th:errors="*{descricao}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pressaoArterialMaxId" class="col-sm-2 col-form-label">Pressao Arterial Max</label>
+            <div class="col-sm-10">
+                <input th:field="*{pressaoArterialMax}"
+                       type="number" class="form-control" id="pressaoArterialMaxId"
+                       placeholder="12"
+                       th:classappend="${#fields.hasErrors('pressaoArterialMax') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('pressaoArterialMax')}"
+                     th:errors="*{pressaoArterialMax}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pressaoArterialMinId" class="col-sm-2 col-form-label">Pressao Arterial Min</label>
+            <div class="col-sm-10">
+                <input th:field="*{pressaoArterialMin}"
+                       type="number" class="form-control" id="pressaoArterialMinId"
+                       placeholder="8"
+                       th:classappend="${#fields.hasErrors('pressaoArterialMin') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('pressaoArterialMin')}"
+                     th:errors="*{pressaoArterialMin}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="frequenciaRespiratoriaId" class="col-sm-2 col-form-label">Frequencia Respiratoria</label>
+            <div class="col-sm-10">
+                <input th:field="*{frequenciaRespiratoria}"
+                       type="number" class="form-control" id="frequenciaRespiratoriaId"
+                       placeholder="100"
+                       th:classappend="${#fields.hasErrors('frequenciaRespiratoria') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('frequenciaRespiratoria')}"
+                     th:errors="*{frequenciaRespiratoria}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="temperaturaId" class="col-sm-2 col-form-label">Temperatura corporal</label>
+            <div class="col-sm-10">
+                <input th:field="*{temperatura}"
+                       type="number" class="form-control" id="temperaturaId"
+                       placeholder="36.8"
+                       th:classappend="${#fields.hasErrors('temperatura') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('temperatura')}"
+                     th:errors="*{temperatura}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="frequenciaCardiacaId" class="col-sm-2 col-form-label">Frequencia cardiaca</label>
+            <div class="col-sm-10">
+                <input th:field="*{frequenciaCardiaca}"
+                       type="number" class="form-control" id="frequenciaCardiacaId"
+                       placeholder="90"
+                       th:classappend="${#fields.hasErrors('frequenciaCardiaca') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('frequenciaCardiaca')}"
+                     th:errors="*{frequenciaCardiaca}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="saturacaoId" class="col-sm-2 col-form-label">Saturacao</label>
+            <div class="col-sm-10">
+                <input th:field="*{saturacao}"
+                       type="number" class="form-control" id="saturacaoId"
+                       placeholder="95"
+                       th:classappend="${#fields.hasErrors('saturacao') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('saturacao')}"
+                     th:errors="*{saturacao}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="dextroId" class="col-sm-2 col-form-label">Dextro</label>
+            <div class="col-sm-10">
+                <input th:field="*{dextro}"
+                       type="number" class="form-control" id="dextroId"
+                       placeholder="45"
+                       th:classappend="${#fields.hasErrors('dextro') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('dextro')}"
+                     th:errors="*{dextro}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="diureseId" class="col-sm-2 col-form-label">Diurese</label>
+            <div class="col-sm-10">
+                <input th:field="*{diurese}"
+                       type="number" class="form-control" id="diureseId"
+                       placeholder="100"
+                       th:classappend="${#fields.hasErrors('diurese') ? 'is-invalid' : ''}">
+                <div class="invalid-feedback"
+                     th:if="${#fields.hasErrors('diurese')}"
+                     th:errors="*{diurese}">
+                    Erro nome
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" value="Salvar">Salvar</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

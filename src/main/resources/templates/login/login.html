@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elderest - Login</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center text-dark mt-5">Elderest Login</h2>
+            <div class="card my-5">
+
+
+                <form method="post" th:action="@{/login}" class="card-body cardbody-color p-lg-5">
+
+                    <!-- error message -->
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger">Nao foi possivel realizar o login. Olhe seu usuario ou senha.</div>
+                    </div>
+
+                    <!-- logout message -->
+                    <div th:if="${param.logout}">
+                        <div class="alert alert-info">
+                            Voce foi deslogado.
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+
+                        <img th:src="@{/images/Elderest.ico}"
+                             class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                             width="200px" alt="profile">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="username" aria-describedby="emailHelp"
+                               placeholder="Usuario">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="password" placeholder="senha">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button>
+                    </div>
+                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">
+                        Não é registrado?
+                        <a th:href="@{/registrar}" class="text-dark fw-bold"> Criar uma conta</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</html>

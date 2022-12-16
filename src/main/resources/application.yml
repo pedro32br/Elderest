@@ -5,3 +5,5 @@ spring:
     user:
       name: "admin"
       password: "puc2021"
+server:
+  port: 5000

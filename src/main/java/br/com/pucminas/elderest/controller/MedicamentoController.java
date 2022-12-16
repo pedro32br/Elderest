@@ -65,7 +65,7 @@ public class MedicamentoController {
 
     @GetMapping(path = "medicamentos/deletar")
     public String deleteMedicamento(@RequestParam final Long medicamentoId, final RedirectAttributes attributes) {
-        log.info("Deletando o medicamento: {}", medicamentoId);
+        log.info("Deletando o medicamento de id: {}", medicamentoId);
         service.deleteMedicamento(medicamentoId);
         attributes.addFlashAttribute("mensagemDeletado", "Medicamento deletado com sucesso");
         log.info("Deletado com sucesso");

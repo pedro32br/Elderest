@@ -14,6 +14,4 @@ public interface MedicamentoRepository extends JpaRepository<Medicamento, Long> 
     @Query("SELECT s FROM Medicamento s WHERE s.nome = ?1")
     Optional<Medicamento> findByNome(String nome);
 
-    void deleteByNome(String nome);
-
 }
